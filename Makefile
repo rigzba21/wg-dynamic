@@ -56,14 +56,14 @@ clean:
 	$(RM) wg-dynamic-client wg-dynamic-server *.o *.d
 endif
 
-install: wg
+install: 
 	@install -v -d "$(DESTDIR)$(BINDIR)" && install -v -m 0755 wg-dynamic-server "$(DESTDIR)$(BINDIR)/wg-dynamic-server"
-	@install -v -d "$(DESTDIR)$(BINDIR)" && install -v -m 0755 wg-dynamic-server "$(DESTDIR)$(BINDIR)/wg-dynamic-client"
-	@install -v -d "$(DESTDIR)$(MANDIR)/man8" && install -v -m 0644 man/wg-dynamic-server.8 "$(DESTDIR)$(MANDIR)/man8/wg-dynamic-server.8"
-	@install -v -d "$(DESTDIR)$(MANDIR)/man8" && install -v -m 0644 man/wg-dynamic-client.8 "$(DESTDIR)$(MANDIR)/man8/wg-dynamic-client.8"
-	@[ "$(WITH_BASHCOMPLETION)" = "yes" ] || exit 0; \
-	install -v -d "$(DESTDIR)$(BASHCOMPDIR)" && install -v -m 0644 completion/wg-dynamic-server.bash-completion "$(DESTDIR)$(BASHCOMPDIR)/wg-dynamic-server"; \
-	install -v -d "$(DESTDIR)$(BASHCOMPDIR)" && install -v -m 0644 completion/wg-dynamic-client.bash-completion "$(DESTDIR)$(BASHCOMPDIR)/wg-dynamic-client"
+	@install -v -d "$(DESTDIR)$(BINDIR)" && install -v -m 0755 wg-dynamic-client "$(DESTDIR)$(BINDIR)/wg-dynamic-client"
+	#@install -v -d "$(DESTDIR)$(MANDIR)/man8" && install -v -m 0644 man/wg-dynamic-server.8 "$(DESTDIR)$(MANDIR)/man8/wg-dynamic-server.8"
+	#@install -v -d "$(DESTDIR)$(MANDIR)/man8" && install -v -m 0644 man/wg-dynamic-client.8 "$(DESTDIR)$(MANDIR)/man8/wg-dynamic-client.8"
+	#@[ "$(WITH_BASHCOMPLETION)" = "yes" ] || exit 0; \
+	#install -v -d "$(DESTDIR)$(BASHCOMPDIR)" && install -v -m 0644 completion/wg-dynamic-server.bash-completion "$(DESTDIR)$(BASHCOMPDIR)/wg-dynamic-server"; \
+	#install -v -d "$(DESTDIR)$(BASHCOMPDIR)" && install -v -m 0644 completion/wg-dynamic-client.bash-completion "$(DESTDIR)$(BASHCOMPDIR)/wg-dynamic-client"
 
 help:
 	@cat INSTALL
